@@ -13,13 +13,15 @@ class WordController {
     String fileData = await rootBundle.loadString('assets/words.json');
     var fileStrings = json.decode(fileData);
 
-    _clientModel.wordLength = wordLength;
-    _clientModel.dictionary.clear();
-    _clientModel.currentWords.clear();
-    for (var fileString in fileStrings){
-      _clientModel.dictionary.add(Word(fileString));
-      if (fileString.length == wordLength){
-        _clientModel.currentWords.add(Word(fileString));
+    if (fileStrings is List && fileStrings[0] is String){
+      _clientModel.wordLength = wordLength;
+      _clientModel.dictionary.clear();
+      _clientModel.currentWords.clear();
+      for (var fileString in fileStrings){
+        _clientModel.dictionary.add(Word(fileString.toLowerCase()));
+        if (fileString.length == wordLength){
+          _clientModel.currentWords.add(Word(fileString.toLowerCase()));
+        }
       }
     }
   }
