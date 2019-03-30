@@ -9,7 +9,7 @@ class WordController {
 
   Future loadDictionary(int wordLength) async {
     String fileData = await rootBundle.loadString('assets/words.txt');
-    fileData.replaceAll('\r', '');
+    fileData = fileData.replaceAll('\r', '');
 
     var fileStrings = fileData.split('\n');
 
@@ -28,6 +28,10 @@ class WordController {
     Word topWord = _clientModel.currentWords.first;
     String topWordString = topWord.toHangmanString(_clientModel.guessedLetters);
     return topWordString;
+  }
+
+  List<Word> getCurrentWords(){
+    return _clientModel.currentWords;
   }
 
   List<String> getUnGuessedLetters(){
