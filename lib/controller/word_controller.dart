@@ -28,4 +28,15 @@ class WordController {
     String topWordString = topWord.toHangmanString(_clientModel.guessedLetters);
     return topWordString;
   }
+
+  List<String> getUnGuessedLetters(){
+    var letters = "abcdefghijklmnopqrstuvwxyz".split('');
+    var unGuessedLetters = List<String>();
+    for (var letter in letters){
+      if (!_clientModel.guessedLetters.contains(letter)){
+        unGuessedLetters.add(letter);
+      }
+    }
+    return unGuessedLetters;
+  }
 }
