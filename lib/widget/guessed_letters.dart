@@ -1,6 +1,4 @@
 import 'package:evil_hangman/controller/guess_controller.dart';
-import 'package:evil_hangman/widget/hidden_word_view.dart';
-import 'package:evil_hangman/widget/letter_selector.dart';
 import 'package:flutter/material.dart';
 
 class GuessedLetters extends StatefulWidget {
@@ -25,7 +23,7 @@ class GuessedLettersState extends State<GuessedLetters> {
   }
   String guessedLettersString(){
     var guessController = GuessController();
-    var letters = guessController.guessedLettersArray();
+    var letters = guessController.getGuessedLetters();
     String guesses = "";
     for (var letter in letters){
       guesses += letter + ", ";

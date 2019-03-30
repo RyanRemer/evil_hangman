@@ -11,7 +11,9 @@ class ScorePageState extends State<ScorePage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      appBar: AppBar(
+        title: Text("Final Score"),
+      ),
     );
   }
 }

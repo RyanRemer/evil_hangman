@@ -1,4 +1,6 @@
+import 'package:evil_hangman/controller/end_game_controller.dart';
 import 'package:evil_hangman/controller/guess_controller.dart';
+import 'package:evil_hangman/page/score_page.dart';
 import 'package:evil_hangman/widget/guessed_letters.dart';
 import 'package:evil_hangman/widget/hidden_word_view.dart';
 import 'package:evil_hangman/widget/letter_selector.dart';
@@ -33,8 +35,16 @@ class GuessPageState extends State<GuessPage> {
 
   void guessLetter(String letter){
     var guessController = GuessController();
+
     setState(() {
       guessController.guessLetter(letter);
+      checkWinCondition();
     });
+  }
+
+  void checkWinCondition(){
+    if (EndGameController().gameIsOver()){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ScorePage()));
+    }
   }
 }

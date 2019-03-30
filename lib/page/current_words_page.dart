@@ -38,7 +38,7 @@ class CurrentWordsPageState extends State<CurrentWordsPage>{
       children: <Widget>[
         ListTile(
           title: Text("Hangman String: "),
-          trailing: Text("${_wordController.getHiddenWord()}"),
+          trailing: Text("${_wordController.getHangmanString()}"),
         ),
         ListTile(
           title: Text("Number of Words: "),

@@ -13,7 +13,7 @@ class GuessController{
     var largestList = this._findLargestList(wordMap);
     _clientModel.currentWords = largestList;
   }
-  List<String> guessedLettersArray(){
+  List<String> getGuessedLetters(){
     return _clientModel.guessedLetters;
   }
 

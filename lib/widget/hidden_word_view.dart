@@ -31,6 +31,6 @@ class HiddenWordState extends State<HiddenWordView> {
   }
 
   String getHiddenWordString() {
-    return WordController().getHiddenWord();
+    return WordController().getHangmanString();
   }
 }
