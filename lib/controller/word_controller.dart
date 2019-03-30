@@ -23,4 +23,10 @@ class WordController {
       }
     }
   }
+
+  String getHiddenWord() {
+    Word topWord = _clientModel.currentWords.first;
+    String topWordString = topWord.toHangmanString(_clientModel.guessedLetters);
+    return topWordString;
+  }
 }

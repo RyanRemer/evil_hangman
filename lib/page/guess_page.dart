@@ -1,3 +1,4 @@
+import 'package:evil_hangman/controller/word_controller.dart';
 import 'package:flutter/material.dart';
 
 class GuessPage extends StatefulWidget{
@@ -21,7 +22,18 @@ class GuessPageState extends State<GuessPage>{
           children: <Widget> [
             Container (
               color: Colors.green,
-              height: 150.0
+              height: 150.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget> [
+                  Text(
+                    getHiddenWordString(),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.display3
+                  )
+                ]
+              )
             ),
             Expanded (
               child: Container (
@@ -32,5 +44,9 @@ class GuessPageState extends State<GuessPage>{
         )
       )
     );
+  }
+
+  String getHiddenWordString() {
+    return WordController().getHiddenWord();
   }
 }
