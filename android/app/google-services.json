@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "806753400585",
+    "firebase_url": "https://evil-hangman.firebaseio.com",
+    "project_id": "evil-hangman",
+    "storage_bucket": "evil-hangman.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806753400585:android:8c3a479431f42716",
+        "android_client_info": {
+          "package_name": "com.ryanremer.evilhangman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806753400585-divgiptgo7gm48su8ufct36eti5dm2to.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaQY_jxxB-VoIrwsdoiAxSHD2scNqYiWg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
