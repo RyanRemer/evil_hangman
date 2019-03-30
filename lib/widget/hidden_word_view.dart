@@ -13,7 +13,7 @@ class HiddenWordState extends State<HiddenWordView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 150.0,
+        height: 120.0,
         color: Colors.white10,
         child: Center(
             child: GestureDetector(

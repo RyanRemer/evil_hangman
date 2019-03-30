@@ -17,6 +17,17 @@ class GuessController{
     return _clientModel.guessedLetters;
   }
 
+  List<String> getUnGuessedLetters(){
+    var letters = "abcdefghijklmnopqrstuvwxyz".split('');
+    var unGuessedLetters = List<String>();
+    for (var letter in letters){
+      if (!_clientModel.guessedLetters.contains(letter)){
+        unGuessedLetters.add(letter);
+      }
+    }
+    return unGuessedLetters;
+  }
+
   void clearGuessedLetters(){
     _clientModel.guessedLetters.clear();
   }

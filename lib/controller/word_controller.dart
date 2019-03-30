@@ -37,15 +37,4 @@ class WordController {
   List<Word> getCurrentWords(){
     return _clientModel.currentWords;
   }
-
-  List<String> getUnGuessedLetters(){
-    var letters = "abcdefghijklmnopqrstuvwxyz".split('');
-    var unGuessedLetters = List<String>();
-    for (var letter in letters){
-      if (!_clientModel.guessedLetters.contains(letter)){
-        unGuessedLetters.add(letter);
-      }
-    }
-    return unGuessedLetters;
-  }
 }

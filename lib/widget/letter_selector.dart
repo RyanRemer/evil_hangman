@@ -1,4 +1,4 @@
-import 'package:evil_hangman/controller/word_controller.dart';
+import 'package:evil_hangman/controller/guess_controller.dart';
 import 'package:flutter/material.dart';
 
 class LetterSelector extends StatefulWidget {
@@ -23,8 +23,8 @@ class LetterSelectorState extends State<LetterSelector> {
   }
 
   Widget _buildKeyboard(BuildContext context) {
-    var wordController = WordController();
-    var unGuessedLetters = wordController.getUnGuessedLetters();
+    var guessController = GuessController();
+    var unGuessedLetters = guessController.getUnGuessedLetters();
 
     return GridView.count(
       crossAxisCount: 4,
@@ -37,7 +37,7 @@ class LetterSelectorState extends State<LetterSelector> {
                     letter,
                     style: Theme.of(context).textTheme.display1,
                   ),
-                  onPressed: () => onLetterSelect(letter),
+                  onPressed: this.onLetterSelect != null ? () => onLetterSelect(letter): null,
                 ),
               ))
           .toList(),

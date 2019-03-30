@@ -26,7 +26,10 @@ class GuessPageState extends State<GuessPage> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
           HiddenWordView(),
-          GuessedLetters(),
+          Container(
+            padding: EdgeInsets.all(8.0),
+            child: GuessedLetters(),
+          ),
           Container(
             child: Expanded(child: LetterSelector(onLetterSelect: this.guessLetter,))
           )

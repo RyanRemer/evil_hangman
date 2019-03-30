@@ -13,4 +13,9 @@ class EndGameController {
 
     return (hiddenWord.toString() == hangmanString);
 }
+
+  int getScore(){
+    var unGuessedLetters = GuessController().getUnGuessedLetters();
+    return unGuessedLetters.length;
+  }
 }
