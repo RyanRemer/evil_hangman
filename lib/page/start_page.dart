@@ -38,9 +38,9 @@ class StartPageState extends State<StartPage> {
   }
 
   Widget _buildHangmanTitle(BuildContext context){
-    return Text("Evil Hangman", style: Theme.of(context).textTheme.display3,);
+    return Text("Evil Hangman", style: Theme.of(context).textTheme.display2,);
   }
-  
+
   Widget _buildWelcomeParagraph(BuildContext context){
     return ListView(
       children: <Widget>[
@@ -51,7 +51,7 @@ class StartPageState extends State<StartPage> {
       ],
     );
   }
-  
+
   Widget _buildBeginGameForm(BuildContext context){
     return ListView(
       children: <Widget>[
@@ -83,8 +83,13 @@ class StartPageState extends State<StartPage> {
     await wordController.loadDictionary(this._wordLength);
     var guessController = GuessController();
     guessController.clearGuessedLetters();
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => GuessPage()));
+    if(wordController.isCurrentWordsEmpty()){
+      showError();
+    }
+    else{
+      Navigator.push(context, MaterialPageRoute(builder: (context) => GuessPage()));
+    }
+
   }
 
   String getGameInfo(){
@@ -97,4 +102,34 @@ class StartPageState extends State<StartPage> {
         "\nThanks,\n\n"
         "Ryan Remer, Bradley Griffin, and Caleb Young";
   }
+
+  void showError() {
+
+      showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: Text('Error'),
+            content: SingleChildScrollView(
+            child: ListBody(
+            children: <Widget>[
+              Text ('There are no words in our dictionary of that size.'),
+              Text ('\n Largest wordsize is 29 letters.'),
+                ],
+            ),
+            ),
+            actions: <Widget>[
+              FlatButton(child: Text('Ok'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              ),
+            ],
+          );
+        },
+      );
+
+  } // end of alert
+
 }

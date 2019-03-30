@@ -12,6 +12,7 @@ class WordController {
     fileData = fileData.replaceAll('\r', '');
 
     var fileStrings = fileData.split('\n');
+    fileStrings.removeWhere((word) => (word == ""));
 
     _clientModel.wordLength = wordLength;
     _clientModel.dictionary.clear();
@@ -22,6 +23,9 @@ class WordController {
         _clientModel.currentWords.add(Word(fileString.toLowerCase()));
       }
     }
+  }
+  bool isCurrentWordsEmpty(){
+    return (_clientModel.currentWords.length == 0);
   }
 
   String getHangmanString() {
