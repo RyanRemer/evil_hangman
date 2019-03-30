@@ -1,4 +1,6 @@
 import 'package:evil_hangman/controller/word_controller.dart';
+import 'package:evil_hangman/widget/hidden_word_view.dart';
+import 'package:evil_hangman/widget/letter_selector.dart';
 import 'package:flutter/material.dart';
 
 class GuessPage extends StatefulWidget{
@@ -20,33 +22,13 @@ class GuessPageState extends State<GuessPage>{
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: <Widget> [
-            Container (
-              color: Colors.green,
-              height: 150.0,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget> [
-                  Text(
-                    getHiddenWordString(),
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.display3
-                  )
-                ]
-              )
-            ),
+            HiddenWordView(),
             Expanded (
-              child: Container (
-                color: Colors.red
-              )
+              child: LetterSelector()
             ),
           ]
         )
       )
     );
-  }
-
-  String getHiddenWordString() {
-    return WordController().getHiddenWord();
   }
 }

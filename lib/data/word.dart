@@ -13,9 +13,9 @@ class Word {
 
     for (var valueLetter in valueLetters){
       if (letters.contains(valueLetter)){
-        hangmanString += valueLetter;
+        hangmanString += valueLetter + " ";
       } else {
-        hangmanString += "-";
+        hangmanString += "_ ";
       }
     }
 
