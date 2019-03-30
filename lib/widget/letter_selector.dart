@@ -1,23 +1,21 @@
-import 'package:evil_hangman/controller/guess_controller.dart';
 import 'package:evil_hangman/controller/word_controller.dart';
 import 'package:flutter/material.dart';
 
-class LetterSelector extends StatefulWidget{
-  VoidCallback onGuess;
+class LetterSelector extends StatefulWidget {
+  ValueSetter<String> onLetterSelect;
 
-  LetterSelector({this.onGuess});
+  LetterSelector({this.onLetterSelect});
 
   @override
   State<StatefulWidget> createState() {
-    return LetterSelectorState(onGuess: this.onGuess);
+    return LetterSelectorState(onLetterSelect: this.onLetterSelect);
   }
-
 }
 
-class LetterSelectorState extends State<LetterSelector>{
-  VoidCallback onGuess;
+class LetterSelectorState extends State<LetterSelector> {
+  ValueSetter<String> onLetterSelect;
 
-  LetterSelectorState({this.onGuess});
+  LetterSelectorState({this.onLetterSelect});
 
   @override
   Widget build(BuildContext context) {
@@ -32,24 +30,16 @@ class LetterSelectorState extends State<LetterSelector>{
       crossAxisCount: 4,
       children: unGuessedLetters
           .map((letter) => Container(
-        padding: EdgeInsets.all(10),
-        child: RaisedButton(
-          child: Text(letter, style: Theme.of(context).textTheme.display1,),
-          onPressed: () => this.guessLetter(letter),
-        ),
-      ))
+                padding: EdgeInsets.all(10),
+                child: RaisedButton(
+                  child: Text(
+                    letter,
+                    style: Theme.of(context).textTheme.display1,
+                  ),
+                  onPressed: () => onLetterSelect(letter),
+                ),
+              ))
           .toList(),
     );
   }
-
-  void guessLetter(String letter){
-    var guessController = GuessController();
-    setState(() {
-      guessController.guessLetter(letter);
-      if (onGuess != null){
-        onGuess();
-      }
-    });
-  }
-
 }

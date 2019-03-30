@@ -1,3 +1,4 @@
+import 'package:evil_hangman/controller/guess_controller.dart';
 import 'package:evil_hangman/widget/hidden_word_view.dart';
 import 'package:evil_hangman/widget/letter_selector.dart';
 import 'package:flutter/material.dart';
@@ -22,13 +23,14 @@ class GuessPageState extends State<GuessPage> {
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
               HiddenWordView(),
-              Expanded(child: LetterSelector(onGuess: this.onGuess,)),
+              Expanded(child: LetterSelector(onLetterSelect: this.guessLetter,)),
             ])));
   }
 
-  void onGuess(){
+  void guessLetter(String letter){
+    var guessController = GuessController();
     setState(() {
-
+      guessController.guessLetter(letter);
     });
   }
 }
