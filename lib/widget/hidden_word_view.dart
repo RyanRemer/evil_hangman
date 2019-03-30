@@ -14,6 +14,7 @@ class HiddenWordState extends State<HiddenWordView> {
   Widget build(BuildContext context) {
     return Container(
         height: 150.0,
+        color: Colors.white10,
         child: Center(
             child: GestureDetector(
           onDoubleTap: () => this.showHiddenWords(context),

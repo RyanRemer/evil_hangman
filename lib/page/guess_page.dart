@@ -14,17 +14,19 @@ class GuessPageState extends State<GuessPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Evil Hangman'),
-        ),
-        body: Container(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-              HiddenWordView(),
-              Expanded(child: LetterSelector(onLetterSelect: this.guessLetter,)),
-            ])));
+      appBar: AppBar(
+        title: Text('Evil Hangman'),
+      ),
+      body: Container(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+          HiddenWordView(),
+          Container(
+            child: Expanded(child: LetterSelector(onLetterSelect: this.guessLetter,))
+          )
+        ])));
   }
 
   void guessLetter(String letter){

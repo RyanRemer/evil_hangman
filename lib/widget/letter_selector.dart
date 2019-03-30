@@ -28,6 +28,7 @@ class LetterSelectorState extends State<LetterSelector> {
 
     return GridView.count(
       crossAxisCount: 4,
+      padding: EdgeInsets.all(10),
       children: unGuessedLetters
           .map((letter) => Container(
                 padding: EdgeInsets.all(10),
