@@ -12,6 +12,8 @@ class WordController {
   Future loadDictionary(int wordLength) async {
     String fileData = await rootBundle.loadString('assets/words.json');
     var fileStrings = json.decode(fileData);
+
+    _clientModel.wordLength = wordLength;
     _clientModel.dictionary.clear();
     for (var fileString in fileStrings){
       if (fileString.length == wordLength){

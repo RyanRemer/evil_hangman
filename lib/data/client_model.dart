@@ -7,10 +7,12 @@ class ClientModel {
   List<Word> dictionary;
   List<Word> currentWords;
   List<String> guessedLetters;
+  int wordLength;
 
   ClientModel(){
     dictionary = List<Word>();
     currentWords = List<Word>();
     guessedLetters = List<String>();
+    wordLength = 0;
   }
 }
