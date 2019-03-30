@@ -15,9 +15,11 @@ class WordController {
 
     _clientModel.wordLength = wordLength;
     _clientModel.dictionary.clear();
+    _clientModel.currentWords.clear();
     for (var fileString in fileStrings){
+      _clientModel.dictionary.add(Word(fileString));
       if (fileString.length == wordLength){
-        _clientModel.dictionary.add(Word(fileString));
+        _clientModel.currentWords.add(Word(fileString));
       }
     }
   }
