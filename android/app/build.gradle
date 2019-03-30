@@ -41,7 +41,7 @@ android {
         applicationId "com.ryanremer.evilhangman"
         minSdkVersion 21
         targetSdkVersion 27
-        multiDexEnabled true1
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

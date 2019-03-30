@@ -1,4 +1,4 @@
-import 'package:evil_hangman/page/start_page.dart';
+import 'package:evil_hangman/page/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.grey,
         textSelectionHandleColor: Colors.red,
       ),
-      home: StartPage(),
+      home: LoginPage(),
     );
   }
 }
