@@ -3,6 +3,7 @@ import 'package:evil_hangman/controller/word_controller.dart';
 import 'package:evil_hangman/page/guess_page.dart';
 import '../data/client_model.dart';
 import 'package:flutter/material.dart';
+import '../auth.dart';
 
 class StartPage extends StatefulWidget {
   @override
@@ -68,13 +69,24 @@ class StartPageState extends State<StartPage> {
           ),
         ),
         Center(
+          child: Container(
+            padding: EdgeInsets.all(8.0),
+            child: RaisedButton(
+              onPressed: () => beginGame(context),
+              child: const Text('Begin a Game'),
+            ),
+          )
+        ),
+        Center(
             child: Container(
               padding: EdgeInsets.all(8.0),
               child: RaisedButton(
-                onPressed: () => beginGame(context),
-                child: const Text('Begin a Game'),
+                color: Colors.white30,
+                onPressed: () => signOutAndRestart(context),
+                child: const Text('Log Out'),
               ),
-            ))
+            )
+        )
       ],
     );
   }
@@ -133,5 +145,10 @@ class StartPageState extends State<StartPage> {
       );
 
   } // end of alert
+
+  void signOutAndRestart(BuildContext context) {
+    authService.signOut();
+    Navigator.of(context).pop();
+  }
 
 }
