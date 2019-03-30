@@ -13,16 +13,21 @@ class HiddenWordState extends State<HiddenWordView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 120.0,
-        color: Colors.white10,
-        child: Center(
-            child: GestureDetector(
+      height: 120.0,
+      color: Colors.white10,
+      child: Center(
+        child: GestureDetector(
           onDoubleTap: () => this.showHiddenWords(context),
-          child: Text(getHiddenWordString(),
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.display3),
-        )));
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Text(getHiddenWordString(),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.display3),
+            ),
+        ),
+      ),
+    );
   }
 
   void showHiddenWords(BuildContext context) {
