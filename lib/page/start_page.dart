@@ -53,7 +53,7 @@ class StartPageState extends State<StartPage> {
   }
   
   Widget _buildBeginGameForm(BuildContext context){
-    return Column(
+    return ListView(
       children: <Widget>[
         Container(
           padding: EdgeInsets.all(8.0),
