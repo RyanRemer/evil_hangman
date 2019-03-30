@@ -39,8 +39,9 @@ android {
 
     defaultConfig {
         applicationId "com.ryanremer.evilhangman"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 27
+        multiDexEnabled true1
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
