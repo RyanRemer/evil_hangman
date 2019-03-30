@@ -25,8 +25,13 @@ class GuessedLettersState extends State<GuessedLetters> {
     var guessController = GuessController();
     var letters = guessController.getGuessedLetters();
     String guesses = "";
-    for (var letter in letters){
-      guesses += letter + ", ";
+    for (int i = 0; i < letters.length; i++){
+      if(i != letters.length - 1){
+        guesses += letters[i] + ", ";
+      }
+      else{
+        guesses += letters[i];
+      }
     }
     return guesses;
   }
