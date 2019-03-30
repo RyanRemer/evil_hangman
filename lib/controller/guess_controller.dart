@@ -13,6 +13,9 @@ class GuessController{
     var largestList = this._findLargestList(wordMap);
     _clientModel.currentWords = largestList;
   }
+  List<String> guessedLettersArray(){
+    return _clientModel.guessedLetters;
+  }
 
   void clearGuessedLetters(){
     _clientModel.guessedLetters.clear();
