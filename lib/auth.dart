@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:flutter/material.dart';
 import 'page/start_page.dart';
+import 'data/client_model.dart';
 
 class AuthService {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
@@ -41,6 +42,10 @@ class AuthService {
   }
 
   void updateUserData(FirebaseUser user) async {
+    // Update local user data
+    var _userData = ClientModel.getInstance().userData;
+    _userData.name = user.displayName;
+    // Update user data in Firestore
     DocumentReference ref = _db.collection('users').document(user.uid);
     return ref.setData({
       'uid': user.uid,

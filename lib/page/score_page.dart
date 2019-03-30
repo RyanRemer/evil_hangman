@@ -60,7 +60,6 @@ class ScorePageState extends State<ScorePage> {
   }
 
   void startNewGame() {
-    Navigator.popUntil(
-        context, ModalRoute.withName(Navigator.defaultRouteName));
+    Navigator.pop(context);
   }
 }

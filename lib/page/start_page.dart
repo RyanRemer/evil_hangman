@@ -1,6 +1,7 @@
 import 'package:evil_hangman/controller/guess_controller.dart';
 import 'package:evil_hangman/controller/word_controller.dart';
 import 'package:evil_hangman/page/guess_page.dart';
+import '../data/client_model.dart';
 import 'package:flutter/material.dart';
 
 class StartPage extends StatefulWidget {
@@ -93,7 +94,8 @@ class StartPageState extends State<StartPage> {
   }
 
   String getGameInfo(){
-    return "Welcome to Evil Hangman, \n\n"
+    var _userData = ClientModel.getInstance().userData;
+    return "Welcome " + _userData.name + ", \n\n"
         "Before you begin, we want to warn you that this will not be a simple game of hangman."
         "We designed this app to be as hard as possible."
         "We invite you to try to do the best you can."
