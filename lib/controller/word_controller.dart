@@ -9,8 +9,9 @@ class WordController {
 
   Future loadDictionary(int wordLength) async {
     String fileData = await rootBundle.loadString('assets/words.txt');
+    fileData.replaceAll('\r', '');
 
-    var fileStrings = fileData.split('\r\n');
+    var fileStrings = fileData.split('\n');
 
     _clientModel.wordLength = wordLength;
     _clientModel.dictionary.clear();

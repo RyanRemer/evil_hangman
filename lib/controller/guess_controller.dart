@@ -14,6 +14,10 @@ class GuessController{
     _clientModel.currentWords = largestList;
   }
 
+  void clearGuessedLetters(){
+    _clientModel.guessedLetters.clear();
+  }
+
   void _buildWordMap(Map<String, List<Word>> wordMap) {
     var currentWords = _clientModel.currentWords;
     var guessedLetters = _clientModel.guessedLetters;

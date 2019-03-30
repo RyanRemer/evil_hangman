@@ -1,3 +1,4 @@
+import 'package:evil_hangman/controller/guess_controller.dart';
 import 'package:evil_hangman/controller/word_controller.dart';
 import 'package:evil_hangman/page/guess_page.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,8 @@ class StartPageState extends State<StartPage>{
   Future beginGame(BuildContext context) async {
     var wordController = WordController();
     await wordController.loadDictionary(this._wordLength);
+    var guessController = GuessController();
+    guessController.clearGuessedLetters();
     Navigator.push(context, MaterialPageRoute(builder: (context) => GuessPage()));
   }
 }
